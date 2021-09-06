@@ -19,7 +19,6 @@ namespace SeleniumShopTest.Tests.Scripts
         public void AddItemToCart(String browserName)
         {
             Start(browserName);
-           
             try
             {
                 WomenPage women = new WomenPage();
@@ -37,15 +36,11 @@ namespace SeleniumShopTest.Tests.Scripts
                 
                 throw;
             }
-
             finally
-            
             {
                 if (driver!=null)
-                
                 {
                     driver.Quit();
-                
                 }
             }
         }
