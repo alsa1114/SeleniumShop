@@ -1,6 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.UI;
 using SeleniumShopTest.StartDriver;
 
 namespace SeleniumShopTest.PageObjects.Pages
@@ -10,9 +10,9 @@ namespace SeleniumShopTest.PageObjects.Pages
         /// <summary>
         /// Add product to the cart locators
         /// </summary>
-        public IWebElement LnkWomen => driver.FindElement(By.LinkText("Women"));
-        public IWebElement IconList => driver.FindElement(By.CssSelector("i.icon-th-list"));
-        public IWebElement BtnAddToCart => driver.FindElement(By.XPath("//span[text() ='Add to cart']"));
+        private IWebElement LnkWomen => driver.FindElement(By.LinkText("Women"));
+        private IWebElement IconList => driver.FindElement(By.CssSelector("i.icon-th-list"));
+        private IWebElement BtnAddToCart => driver.FindElement(By.XPath("//span[text() ='Add to cart']"));
        
         /// <summary>
         /// Add product to cart logics
@@ -31,6 +31,15 @@ namespace SeleniumShopTest.PageObjects.Pages
 
           BtnAddToCart.Click();
         
+        }
+
+        /// <summary>
+        /// Posability to click women page
+        /// </summary>
+        public void CheckWomenLink()
+        {
+            LnkWomen.Click();
+            Assert.That(LnkWomen.Displayed, Is.True);
         }
     }
 }

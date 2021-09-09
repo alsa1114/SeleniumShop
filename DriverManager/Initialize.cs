@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using System;
@@ -11,12 +12,11 @@ namespace SeleniumShopTest.StartDriver
         public static IWebDriver driver = null;
 
         /// <summary>
-        /// Browser launch
+        /// Browser launch settings
         /// </summary>
+        
         public static void Start(String browserName)
-
         {
-
             if (driver == null && browserName.ToLower().Equals("chrome"))
             {
                 driver = new ChromeDriver();
@@ -27,7 +27,6 @@ namespace SeleniumShopTest.StartDriver
 
             {
                 driver = new FirefoxDriver();
-
             }
             else
                 throw new NotImplementedException();
@@ -35,30 +34,26 @@ namespace SeleniumShopTest.StartDriver
             driver.Manage().Window.Maximize();
 
             driver.Navigate().GoToUrl("http://automationpractice.com/");
-
         }
-
-
 
         /// <summary>
         /// Browser quit
         /// </summary>
-        /*[TearDown]
+        
+         [TearDown]
          public void CleanUp()
           {
              driver.Quit();
-          }*/
-
+          }
 
         public static IEnumerable<String> BrowserToRunWith()
         {
-            String[] browsers = { "chrome", "firefox" };
+            String[] browsers = AutomationSettings.browsersToRunWith.Split(',');
 
             foreach (String b in browsers)
             {
                 yield return b;
             }
-
         }
     }
 }
