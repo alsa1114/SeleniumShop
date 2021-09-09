@@ -1,5 +1,3 @@
-using AventStack.ExtentReports;
-using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
 using SeleniumShopTest.PageObjects.Pages;
 using SeleniumShopTest.StartDriver;
@@ -8,7 +6,6 @@ using System;
 namespace SeleniumShopTest
 {
     [TestFixture]
-    //[Parallelizable]
     public class HomePageTest : Initialize
     {
         [TestCaseSource(typeof(Initialize), "BrowserToRunWith")]
@@ -47,7 +44,6 @@ namespace SeleniumShopTest
             }
         }*/
 
-
         /// <summary>
         /// Search test check
         /// </summary>
@@ -63,9 +59,6 @@ namespace SeleniumShopTest
         }
     }
 }
-
-    
-
               //  test.Log(Status.Pass, "Search test PASSED");
            // }
             //catch (Exception e)

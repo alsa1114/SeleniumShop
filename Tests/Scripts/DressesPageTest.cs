@@ -13,12 +13,10 @@ namespace SeleniumShopTest.Tests.Scripts
         public void CheckDressesLink(String browserName)
         {
             Start(browserName);
-            
+
             DressesPage dressesPage = new DressesPage();
 
             dressesPage.CheckDressesLink();
-        
         }
-
     }
 }
